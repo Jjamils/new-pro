@@ -1,0 +1,30 @@
+
+img{
+  height: auto;
+  width: auto;
+  max-height: 720px;
+  max-width: 1080px;
+}
+
+.col-md-12{
+  font-size: large;
+  color: black;
+  font-weight: 900;
+}
+
+.col-md-13{
+  font-size: large;
+  color:green;
+  font-weight: 700; 
+}
+
+.col-md-14{
+  font-size: small;
+  color:black;
+}
+
+article{
+  font-size: small;
+  font-weight: 700;
+  color:black;
+}
