@@ -7,14 +7,23 @@ img{
 
 
 .card-text{
-  color: green;
+  color:green;
   font-weight: 800;
+}
+
+aside{
+	width: 30%;
+	margin-right: 10px;
 }
 
 .card-title{
   font-weight: 900;
 }
 
+.btn-warning{
+height: auto;
+width: auto;
+}
 
 #img-center{
 display: block;
