@@ -10,7 +10,7 @@ urlpatterns = [
   path('', views.home, name = 'home'),
   path('<int:codigo_producto>/', views.detalles, name = 'detalles'),
   path('carrito/', views.carrito, name = 'carrito'),
-  path('checkout/', views.checkout, name = 'checkout'),
+  path('pago/', views.pago, name = 'pago'),
 ]
 
 #URL para las imagenes

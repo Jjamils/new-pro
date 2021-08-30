@@ -29,7 +29,7 @@ def carrito():
 
 
 
-def checkout():
+def pago():
   context = {}
   return render(request, 'home/checkout.html', context)
 
