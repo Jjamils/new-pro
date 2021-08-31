@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Producto
 from django.db.models import Q
+from django.contrib.auth.forms import UserCreationForm
 
 #Funcion para listar los productos y condicion para realizar la busqueda por productos
 
@@ -32,5 +33,15 @@ def carrito():
 def pago():
   context = {}
   return render(request, 'home/checkout.html', context)
+
+#Registro de usuario
+def user(request):
+  form = UserCreationForm()
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      form.save()
+  context = {'form': form}
+  return render(request, 'user.html', context)
 
 
