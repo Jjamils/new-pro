@@ -34,6 +34,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            <li ><a class="nav-link" href="#">Galeria</a></li>
+            <li ><a class="nav-link" href="#">Agregar producto</a></li>
+            <li ><a class="nav-link" href="#">Listado de productos</a></li>
           </ul>
          </div>
           <a href="#" class="btn btn-warning" id="1">Login</a>
@@ -41,6 +44,19 @@
             <img id="cart-icon" src="{% static 'images/images/comp.png' %}">
           </a>
           <p id="cart-total">0</p>
+          {% if user.is_authenticated %}
+          <li>
+            <a href="#">Cerrar sesion</a>
+          </li>
+          <li>
+            <a href="#"> @{{user.username}} </a>
+          </li>
+          {% else %}
+          <li>
+            <a href="#">Iniciar sesion</a>
+          </li>
+          {% endif %}
+
       </nav>
     </div>
   </div>

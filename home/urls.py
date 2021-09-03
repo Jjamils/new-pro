@@ -1,4 +1,6 @@
+import django
 from django.urls import path
+from django.urls.conf import include
 from .import views
 
 #Importacionses para trabajar imagenes
@@ -12,6 +14,7 @@ urlpatterns = [
   path('<int:codigo_producto>/', views.detalles, name = 'detalles'),
   path('carrito/', views.carrito, name = 'carrito'),
   path('pago/', views.pago, name = 'pago'),
+  path('cuenta/', include('django.contrib.auth.urls'))
 ]
 
 #URL para las imagenes
