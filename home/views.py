@@ -41,6 +41,14 @@ def user(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
       form.save()
+      user = form.changed_data.get('username')
+      password_login = form.changed_data.get('password1')
+      usuario = authenticate(username=user, password=password_login)
+      login(request, usuario)
+      messages.success(request, 'Cuenta creada' + user)
+      return redirect(to='/Quilitienda')
+  else:
+    form = UserCreationForm()
   context = {'form': form}
   return render(request, 'user.html', context)
 
