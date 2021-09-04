@@ -7,14 +7,13 @@ from .import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = 'home'
+#app_name = 'home'
 urlpatterns = [
   path('', views.home, name = 'home'),
   path('user/', views.user, name = 'user'),
   path('<int:codigo_producto>/', views.detalles, name = 'detalles'),
   path('carrito/', views.carrito, name = 'carrito'),
-  path('pago/', views.pago, name = 'pago'),
-  path('cuenta/', include('django.contrib.auth.urls'))
+  path('pago/', views.pago, name = 'pago')
 ]
 
 #URL para las imagenes

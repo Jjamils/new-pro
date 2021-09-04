@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
 from .models import Producto
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 #Funcion para listar los productos y condicion para realizar la busqueda por productos
 
@@ -24,15 +26,15 @@ def detalles(request, codigo_producto):
 
 
 
-def carrito():
+def carrito(request):
   context = {}
   return render(request, 'home/carrito.html', context)
 
 
 
-def pago():
+def pago(request):
   context = {}
-  return render(request, 'home/checkout.html', context)
+  return render(request, 'home/pago.html', context)
 
 #Registro de usuario
 def user(request):
@@ -51,6 +53,10 @@ def user(request):
     form = UserCreationForm()
   context = {'form': form}
   return render(request, 'user.html', context)
+
+def logout(request):
+  return render(request, 'home.html')
+
 
 
 
