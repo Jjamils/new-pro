@@ -8,7 +8,8 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-12">
-            <img class="img-fluid" src="{{ product_object.imagen.url }}" id="img-center">
+            <br>
+            <img class="img-fluid" src="{{ product_object.imagen.url }}" id="imgdetalles">
           </div>
         </div>
       </div>
@@ -47,7 +48,7 @@
                 {{ product_object.descripcion }}
                 <div>
                   <a class="btn btn-warning">Agregar al carrito</a>
-                  <a class="btn btn-warning" href="{% url 'home' %}">Volver a la pagina</a>
+                  <a class="btn btn-outline-warning" href="{% url 'home' %}">Volver a la pagina</a>
                 </div>
               </div>
             </div>

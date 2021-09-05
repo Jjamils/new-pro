@@ -1,5 +1,6 @@
 from django.conf.urls.static import static
 from django.db import models
+from django.contrib.auth.models import User
 
 class Administrador(models.Model):
   imagen = models.ImageField(upload_to= 'images', null= True, blank= False, verbose_name= 'Foto')
@@ -49,6 +50,7 @@ class Producto (models.Model):
   ]
   disponibilidad = models.CharField(max_length= 1, choices= inventario, default= 'S', verbose_name= 'Disponibilidad')
   stock = models.IntegerField(verbose_name= 'Cantidad en inventario')
+  cantidad = models.IntegerField(default= 0, null= True, blank= True)
   categoria = models.ForeignKey(Categoria, null= False, blank= False, on_delete= models.CASCADE)
 
   def __str__(self):

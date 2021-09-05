@@ -1,3 +1,4 @@
+from os import name
 import django
 from django.urls import path
 from django.urls.conf import include
@@ -13,7 +14,9 @@ urlpatterns = [
   path('user/', views.user, name = 'user'),
   path('<int:codigo_producto>/', views.detalles, name = 'detalles'),
   path('carrito/', views.carrito, name = 'carrito'),
-  path('pago/', views.pago, name = 'pago')
+  path('pago/', views.pago, name = 'pago'),
+  path('registro/', views.registro, name = 'registro'),
+  #path('paginacion/', views.paginacion, name = 'paginacion')
 ]
 
 #URL para las imagenes

@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-     <div class="row">
+{% load crispy_forms_tags %}
+  <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
 				<form id="form">
@@ -51,12 +52,12 @@
 
 		<div class="col-lg-6">
 			<div class="box-element">
-				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+				<a  class="btn btn-outline-warning" href="{% url 'carrito' %}">&#x2190; Ir al carrito</a>
 				<hr>
 				<h3>Order Summary</h3>
 				<hr>
 				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>
+					<div style="flex:2"><img class="row-image" src="{% static 'images/images/bici.png' %}"></div>
 					<div style="flex:2"><p>Product 1</p></div>
 					<div style="flex:1"><p>$20.00</p></div>
 					<div style="flex:1"><p>x2</p></div>

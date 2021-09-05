@@ -1,47 +1,83 @@
 img{
   height: auto;
   width: auto;
-  max-height: 58px;
-  max-width: 120px;
+  max-height: 70px;
+  max-width: 180px;
 }
 
+#quili-icon{
+	width:150px;
+	height: 55px;
+	display: inline-block;
+	margin-left: 25px;
+}
+
+#caja_producto{
+	display: block;
+	height: auto;
+	width: auto;
+	max-height: 220;
+	max-width: 350;
+}
+
+#imgproducto{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: auto;
+	max-height: 160px;
+	max-width: 290px;
+	}
 
 .card-text{
   color:green;
   font-weight: 800;
 }
 
-aside{
-	width: 30%;
-	margin-right: 10px;
-}
 
 .card-title{
   font-weight: 900;
 }
+
+body{
+	background-color: hsl(56, 94%, 50%);
+}
+
+#imgdetalles{
+  height: auto;
+  width: 75%;
+  max-height: 720px;
+  max-width: 1080px;
+}
+
+.form-field{
+width: 250;
+display: inline-block;
+padding: 5px;
+}
+
+.cart-row{
+	display: flex;
+	align-items: flex-stretch;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ececec;
+}
+
+.row-image{
+	width: 100;}
 
 .btn-warning{
 height: auto;
 width: auto;
 }
 
-#img-center{
-display: block;
-margin-left: auto;
-margin-right: auto;
-
-}
 
 .container1{
 	width: 100%;
 }
 
-#quili-icon{
-	width:120px;
-	height: 55px;
-	display: inline-block;
-	margin-left: 25px;
-}
 
 #cart-icon{
 	width:35px;
@@ -70,6 +106,8 @@ margin-right: auto;
 	border-radius: 0;
 }
 
-.row-image{
-	width: 100px;
+.quantity{
+	display: inline-block;
+	font-weight: 700;
+	padding-right: 10;
 }

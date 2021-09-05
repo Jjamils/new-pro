@@ -32,8 +32,8 @@
      <div class="col-md-3">
        <br>
        <div class="card">
-         <div class= "card-img-top">
-          <img class="img-fluid" src="{{ producto.imagen.url }}" id="img-center">
+         <div class= "card-img-top" id="caja_producto">
+          <img class="img-fluid" src="{{ producto.imagen.url }}" id="imgproducto">
            <div class="card-body">
             <div class="card-title">
             {{ producto.nombre }}
@@ -51,5 +51,6 @@
      </div>
      {% endfor %}
   </div>
+  {% include 'home/paginador.html' %}
 
 {% endblock %}
