@@ -1,3 +1,4 @@
+from home.carrito import Carrito
 from django.core import paginator
 from django.http.response import Http404
 from django.shortcuts import render, redirect
@@ -45,11 +46,6 @@ def detalles(request, codigo_producto):
   return render(request, 'home/home.html', data)
 
 
-def carrito(request):
-  context = {}
-  return render(request, 'home/carrito.html', context)
-
-
 def pago(request):
   context = {}
   return render(request, 'home/pago.html', context)
@@ -92,3 +88,32 @@ def registro(request):
     data['form'] = formulario
 
   return render(request, 'registration/registro.html', data)
+
+def carrito(request):
+  productos = Producto.objects.all()
+  context = {'productos': productos}
+  
+  return render(request, 'home/carrito.html', context)
+
+def agregar_carrito(request, producto_id):
+  carrito = Carrito(request)
+  producto = Producto.objects.get(id = producto_id)
+  carrito.agregar(producto)
+  return redirect(to= home)
+
+def eliminar_carrito(request, producto_id):
+  carrito = Carrito(request)
+  producto = Producto.objects.get(id = producto_id)
+  carrito.eliminar(producto)
+  return redirect(to= home)
+
+def restar_carrito(request, producto_id):
+  carrito = Carrito(request)
+  producto = Producto.objects.get(id = producto_id)
+  carrito.restar(producto)
+  return redirect(to= home)
+
+def limpiar_carrito(request):
+  carrito = Carrito(request)
+  carrito.limpiar_carrito()
+  return redirect(to= home)

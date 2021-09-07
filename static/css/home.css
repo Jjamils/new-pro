@@ -106,8 +106,7 @@ width: auto;
 	border-radius: 0;
 }
 
-.quantity{
-	display: inline-block;
-	font-weight: 700;
-	padding-right: 10;
+.quantityf{
+	height: 12px;
+	width: 10px;
 }

@@ -40,29 +40,30 @@
               <li ><a class="nav-link" href="{% url 'carrito' %}">Productos en carrito</a></li>
             
               </div>
-              <a class="btn btn-warning" href="{% url 'login' %}" id="1">Login</a>
-              <a class="btn btn-warning" href="{% url 'registro' %}">Registrarse</a>
-              <a href="#">
+              
+              
                 <img id="cart-icon" src="{% static 'images/images/comp.png' %}">
               </a>
               <p id="cart-total">0</p>
 
               <!--Vista de usuario conectado-->
-              {% if login.is_authenticated %}
+              {% if user.is_authenticated %}
               <li>
-                <a href="{% url 'logout' %}">Cerrar sesion</a>
+                <a class="btn btn-warning" href="#"> @{{user.username}} </a>
               </li>
               <li>
-                <a href="#"> @{{user.username}} </a>
+                <a class="btn btn-warning" href="{% url 'logout' %}">Cerrar sesion</a>
               </li>
               {% else %}
               <li>
-                <a href="{% url 'login' %}">Iniciar sesion</a>
-              </li>
+                <a class="btn btn-warning" href="{% url 'login' %}" id="1">Login</a>
+               </li>
+               <li>
+                <a class="btn btn-warning" href="{% url 'registro' %}">Registrarse</a>
+               </li>
               {% endif %}
-
+               
             </ul>
-
         </nav>
       </div>
     </div>

@@ -74,14 +74,6 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.quantity{
-	display: inline-block;
-	font-weight: 700;
-	padding-right:10px;
-	
-
-}
-
 .chg-quantity{
 	width: 12px;
 	cursor: pointer;
