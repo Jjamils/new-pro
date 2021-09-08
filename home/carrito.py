@@ -5,7 +5,8 @@ class Carrito:
     self.session = request.session
     carrito = self.session.get['carrito']
     if not carrito:
-      carrito = self.session['carrito'] = {}
+      self.session['carrito'] = {}
+      self.carrito = self.session['carrito']
     else:
       self.carrito = carrito
 
