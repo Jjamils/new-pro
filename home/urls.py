@@ -17,7 +17,7 @@ urlpatterns = [
   path('pago/', views.pago, name = 'pago'),
   path('registro/', views.registro, name = 'registro'),
   path('<int:codigo_producto>/', views.agregar_carrito, name = 'agregar_carrito'),
-  #path('paginacion/', views.paginacion, name = 'paginacion')
+  path('paginacion/', views.home, name = 'paginacion'),
 ]
 
 #URL para las imagenes

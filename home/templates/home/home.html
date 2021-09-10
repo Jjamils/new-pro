@@ -12,7 +12,8 @@
           <div class="input-group col-md-12">
             <div class="card-body row no-gutters align-items-center">
               <div class="col">
-              <input type="text" name="barra_busqueda" placeholder="Buscar por producto" class="form-control form-cotrol-borderless">
+              <!--Campo de entrada para la barra de busqueda-->
+              <input type="text" name="barra_busqueda" placeholder="Buscar por producto, marca, categoria y mas..." class="form-control form-cotrol-borderless">
               </div>
               <div class="col-auto">
               <button class="btn btn-success" type="submit">Buscar</button>
@@ -28,12 +29,14 @@
 
   <div class="row">
     
-     {% for producto in total_productos %}
+     {% for producto in entity %}
      <div class="col-md-3">
        <br>
        <div class="card">
          <div class= "card-img-top" id="caja_producto">
-          <img class="img-fluid" src="{{ producto.imagen.url }}" id="imgproducto">
+          <a href="{{producto.codigo_producto}}">
+            <img class="img-fluid" src="{{ producto.imagen.url }}" id="imgproducto">
+          </a>
            <div class="card-body">
             <div class="card-title">
             {{ producto.nombre }}
@@ -43,7 +46,7 @@
            </div>
           
            <a href="{{producto.codigo_producto}}" class="btn btn-warning">Ver</a>
-           <a class="btn btn-warning">Agregar al carrito</a>
+           <a href="#" class="btn btn-warning">Agregar al carrito</a>
 
           </div>
          </div>
@@ -51,6 +54,8 @@
      </div>
      {% endfor %}
   </div>
-  {% include 'home/paginador.html' %}
+  <br>
+  <br>
+  {% include 'home/paginator.html' %}
 
 {% endblock %}

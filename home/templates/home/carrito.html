@@ -35,9 +35,9 @@
 				<div style="flex:1"><strong>Total</strong></div>
 			</div>
 		</div>
-
+		<!--Listado de productos en el carrito-->
 		<div class="cart-row">
-			{% for producto in total_productos %}
+			{% for producto in producto %}
 			<div style="flex:2"><img class="row-image" src="{% static 'images/images/bici.png' %}"></div>
 					<div style="flex:2"><p>{{producto.nombre}}</p></div>
 					<div style="flex:1"><p>$ {{producto.precio}}</p></div>

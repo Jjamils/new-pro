@@ -35,13 +35,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               
-            
-              
               <li ><a class="nav-link" href="{% url 'carrito' %}">Productos en carrito</a></li>
             
-              </div>
+          </div>
               
-              
+              <a href="{% url 'carrito' %}">
                 <img id="cart-icon" src="{% static 'images/images/comp.png' %}">
               </a>
               <p id="cart-total">0</p>
@@ -66,14 +64,30 @@
             </ul>
         </nav>
       </div>
-    </div>
-
-    {% block content %}
-    {% endblock %}
-    
+    </div>   
  </div> 
 </header>
 
+<main>
+  {% block content %}
+  {% endblock %}
+</main>
+
+<aside>
+  <h2>Barra aside</h2>
+</aside>
+
+<footer>
+  <p>
+   <a href="">Tu tienda a tu alcacance</a>
+  </p>
+  <p>
+    <a href="">Acerca de nosotros</a>
+  </p>
+  <p>
+    <a href="">Contactanos</a>
+  </p>
+</footer>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>

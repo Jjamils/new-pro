@@ -14,37 +14,35 @@ from django.http import Http404
 #Funcion para listar los productos y condicion para realizar la busqueda por productos
 def home (request):
   total_productos = Producto.objects.all()
-  item_name =request.GET.get('barra_busqueda')
-
-  if item_name:
-    total_productos = Producto.objects.filter(
-      Q(nombre__icontains = item_name) |
-      Q(descripcion__icontains = item_name)
-    ).distinct()
-  return render(request, 'home/home.html', {'total_productos': total_productos})
-
-#Funcion para visualizar detalles de producto en su propio html
-def detalles(request, codigo_producto):
-  product_object = Producto.objects.get(codigo_producto= codigo_producto)
-  return render(request, 'home/detalles.html', {'product_object': product_object})
-
-#def paginacion(request):
-  productos = Producto.objects.all()
+  buscar =request.GET.get('barra_busqueda')
+  #Codigo para pagiador
   page = request.GET.get('page', 1)
-
+  
   try:
-    paginator = Paginator(productos, 5)
-    productos = paginator.page(page)
+    paginator = Paginator(total_productos, 3)
+    total_productos = paginator.page(page)
   except:
     raise Http404
-
+  #Codigo para la barra de busqueda
+  if buscar:
+    total_productos = Producto.objects.filter(
+      Q(nombre__icontains = buscar) |
+      Q(marca__icontains = buscar) |
+      Q(descripcion__icontains = buscar) |
+      Q(categoria__nombre__icontains = buscar)
+    ).distinct()
+  
   data = {
-    'entity': productos,
+    'entity': total_productos,
     'paginator':paginator
   }
 
   return render(request, 'home/home.html', data)
 
+#Funcion para visualizar detalles de producto en su propio html
+def detalles(request, codigo_producto):
+  product_object = Producto.objects.get(codigo_producto= codigo_producto)
+  return render(request, 'home/detalles.html', {'product_object': product_object})
 
 def pago(request):
   context = {}
