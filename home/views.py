@@ -19,7 +19,7 @@ def home (request):
   page = request.GET.get('page', 1)
   
   try:
-    paginator = Paginator(total_productos, 3)
+    paginator = Paginator(total_productos, 4)
     total_productos = paginator.page(page)
   except:
     raise Http404
@@ -95,19 +95,19 @@ def carrito(request):
 
 def agregar_carrito(request, producto_id):
   carrito = Carrito(request)
-  producto = Producto.objects.get(id = producto_id)
-  carrito.agregar(producto)
+  productos = Producto.objects.get(id = producto_id)
+  carrito.agregar(productos)
   return redirect(to= home)
 
 def eliminar_carrito(request, producto_id):
   carrito = Carrito(request)
-  producto = Producto.objects.get(id = producto_id)
+  producto = Producto.objects.get(producto_id = producto_id)
   carrito.eliminar(producto)
   return redirect(to= home)
 
 def restar_carrito(request, producto_id):
   carrito = Carrito(request)
-  producto = Producto.objects.get(id = producto_id)
+  producto = Producto.objects.get(producto_id = producto_id)
   carrito.restar(producto)
   return redirect(to= home)
 

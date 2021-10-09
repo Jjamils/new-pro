@@ -1,9 +1,8 @@
-
 class Carrito:
   def __init__(self, request):
     self.request = request
     self.session = request.session
-    carrito = self.session.get['carrito']
+    carrito = self.session['carrito']
     if not carrito:
       self.session['carrito'] = {}
       self.carrito = self.session['carrito']
@@ -11,20 +10,19 @@ class Carrito:
       self.carrito = carrito
 
 
-  def agregar(self, producto):
-    if str(producto.codigo_producto) not in self.carrito.keys():
-      self.carrito[producto.codigo_producto] = {
-        'codigo' : producto.codigo_producto,
-        'nombre' : producto.nombre,
+  def agregar(self, productos):
+    id = str(productos.codigo_producto)
+    if id not in self.carrito.keys():
+      self.carrito[id] = {
+        'codigo' : productos.codigo_producto,
+        'nombre' : productos.nombre,
         'cantidad' : 1,
-        'acomulado' : str(producto.precio),
-        'imagen' : producto.image.url
+        'acomulado' : str(productos.precio),
+        'imagen' : productos.image.url
       }
     else:
-      self.carrito[producto.codigo_producto] ['cantidad'] += 1
-      self.carrito[producto.codigo_producto] ['acomulado'] += producto.precio
-
-
+      self.carrito[id] ['cantidad'] += 1
+      self.carrito[id] ['acomulado'] += productos.precio
       #for key, value in self.carrito.items():
         #if key == str(producto.codigo_producto):
          # value['cantidad'] = value['cantidad'] + 1
@@ -43,8 +41,8 @@ class Carrito:
       self.guardar_carrito()
 
   def restar(self, producto):
-    id = str(producto.codigo_producto)
-    if id in self.carrito.keys():
+    producto_id = str(producto.codigo_producto)
+    if producto_id in self.carrito.keys():
       self.carrito[id] ['cantidad'] -= 1
       self.carrito[id] ['acomulado'] -= producto.precio
       if self.carrito[id] ['cantidad'] < 1: 
