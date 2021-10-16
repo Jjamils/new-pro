@@ -2,9 +2,9 @@ class Carrito:
   def __init__(self, request):
     self.request = request
     self.session = request.session
-    carrito = self.session['carrito']
+    carrito = self.session('carrito')
     if not carrito:
-      self.session['carrito'] = {}
+      carrito=self.session['carrito'] = {}
       self.carrito = self.session['carrito']
     else:
       self.carrito = carrito
@@ -17,7 +17,7 @@ class Carrito:
         'codigo' : productos.codigo_producto,
         'nombre' : productos.nombre,
         'cantidad' : 1,
-        'acomulado' : str(productos.precio),
+        'Precio' : str(productos.precio),
         'imagen' : productos.image.url
       }
     else:
@@ -26,27 +26,27 @@ class Carrito:
       #for key, value in self.carrito.items():
         #if key == str(producto.codigo_producto):
          # value['cantidad'] = value['cantidad'] + 1
+         # value['Precio'] = value['Precio'] + producto.precio
          # break
     self.guardar_carrito()     
-    #self.save()
   
   def guardar_carrito(self):
     self.session['carrito'] = self.carrito
     self.session.modified = True
 
-  def eliminar(self, producto):
-    producto_id = str(producto.codigo_producto)
+  def eliminar(self, productos):
+    producto_id = str(productos.codigo_producto)
     if producto_id in self.carrito:
       del self.carrito[producto_id]
       self.guardar_carrito()
 
-  def restar(self, producto):
-    producto_id = str(producto.codigo_producto)
+  def restar(self, productos):
+    producto_id = str(productos.codigo_producto)
     if producto_id in self.carrito.keys():
       self.carrito[id] ['cantidad'] -= 1
-      self.carrito[id] ['acomulado'] -= producto.precio
+      self.carrito[id] ['acomulado'] -= productos.precio
       if self.carrito[id] ['cantidad'] < 1: 
-        self.eliminar(producto)
+        self.eliminar(productos)
         self.guardar_carrito
 
     #for key, value in self.carrito.items():
